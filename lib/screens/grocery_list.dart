@@ -18,10 +18,11 @@ class _GroceriesState extends State<Groceries> {
     'aswathi',
     'apple',
     'grapes',
-    'orange'
+    'orange',
+    'pinapple'
   ];
 
-  bool isChecked = false;
+  List<bool> isChecked = List.filled(8 , false);
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +69,10 @@ class _GroceriesState extends State<Groceries> {
                     builder: (BuildContext context, value, Widget? child) {
                       return Checkbox(
                           activeColor: Colors.black87,
-                          value: isChecked,
+                          value: isChecked[index],
                           onChanged: (bool? value) {
-                            isChecked = value!;
+                            isChecked[index] = value!;
+
                             context
                                 .read<GroceryProvider>()
                                 .addGroceries(context, groceries[index]);
