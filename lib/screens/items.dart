@@ -18,8 +18,6 @@ class _ItemsState extends State<Items> {
         itemBuilder: (BuildContext context, int index) {
           return  ListTile(
             title: Text(context.read<GroceryProvider>().item[index]['name'])
-            
-
           );
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(
